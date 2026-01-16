@@ -1,17 +1,49 @@
 'use client'
 
+import { useState, useRef } from 'react'
+import Image from 'next/image'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
 import { Button } from '@/components/ui/button'
-import { MapPin, ArrowRight } from 'lucide-react'
+import { MapPin, Play, Volume2, VolumeX, Pause } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
 
 export function Hero() {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
   const handleDirectionsClick = () => {
     trackEvent('click_directions', {
       page: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
       button_location: 'hero'
     })
+  }
+
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+        setIsPlaying(false)
+      } else {
+        videoRef.current.play()
+        setIsPlaying(true)
+      }
+      trackEvent('hero_video_interaction', {
+        action: isPlaying ? 'pause' : 'play'
+      })
+    }
+  }
+
+  const handleMuteToggle = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+      trackEvent('hero_video_interaction', {
+        action: isMuted ? 'unmute' : 'mute'
+      })
+    }
   }
 
   return (
@@ -75,28 +107,78 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Imagen placeholder */}
+          {/* Video/Imagen Hero */}
           <div className="relative">
-            <div className="aspect-[4/5] bg-gradient-to-br from-stone-200 via-stone-100 to-stone-50 rounded-sm shadow-xl overflow-hidden">
-              {/* Decorative frame */}
-              <div className="absolute inset-4 border border-primary/20 rounded-sm"></div>
-              
-              {/* Placeholder content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                <div className="w-full max-w-xs space-y-6 text-center">
-                  <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
-                  <p 
-                    className="text-primary/60 font-bold tracking-widest text-sm"
-                    style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                  >
-                    UNICCA
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Imagen del escaparate próximamente
-                  </p>
-                  <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
+            <div 
+              className="aspect-[4/5] bg-stone-100 rounded-sm shadow-xl overflow-hidden relative cursor-pointer group"
+              onClick={handlePlayClick}
+            >
+              {/* Video */}
+              <video
+                ref={videoRef}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  isPlaying ? 'opacity-100' : 'opacity-0'
+                }`}
+                src="/Hero/Unicca video1.mp4"
+                loop
+                muted={isMuted}
+                playsInline
+                preload="metadata"
+              />
+
+              {/* Thumbnail (imagen de portada) */}
+              <div 
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
+              >
+                <Image
+                  src="/Hero/video1.png"
+                  alt="Unicca Moda - Tienda de moda de mujer en Chamartín"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+
+              {/* Play button overlay */}
+              <div 
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                  isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
+              >
+                <div className="bg-white/90 backdrop-blur-sm rounded-full p-5 shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                  <Play className="h-8 w-8 text-primary fill-primary" />
                 </div>
               </div>
+
+              {/* Pause indicator (shows briefly on pause) */}
+              {isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-black/40 backdrop-blur-sm rounded-full p-4">
+                    <Pause className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+              )}
+
+              {/* Mute/Unmute button */}
+              {isPlaying && (
+                <button
+                  onClick={handleMuteToggle}
+                  className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-3 text-white hover:bg-black/70 transition-all duration-300 z-10"
+                  aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+                >
+                  {isMuted ? (
+                    <VolumeX className="h-5 w-5" />
+                  ) : (
+                    <Volume2 className="h-5 w-5" />
+                  )}
+                </button>
+              )}
+
+              {/* Decorative frame */}
+              <div className="absolute inset-4 border border-white/30 rounded-sm pointer-events-none"></div>
             </div>
 
             {/* Floating badge */}

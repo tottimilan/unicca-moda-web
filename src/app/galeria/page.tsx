@@ -1,30 +1,46 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
-import { Image as ImageIcon } from 'lucide-react'
+import { GalleryLightbox } from '@/components/GalleryLightbox'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.galeria.title,
   description: siteConfig.pages.galeria.description,
 }
 
-// Galería ampliada con más imágenes
+// Galería con imágenes reales de la tienda
 const galleryImages = [
-  { id: 1, alt: 'Interior de Unicca Moda con prendas de mujer en exposición' },
-  { id: 2, alt: 'Escaparate de Unicca Moda en Chamartín con decoración floral' },
-  { id: 3, alt: 'Zona de mostrador "Siéntete Unicca" dentro de la tienda' },
-  { id: 4, alt: 'Perchero con prendas coloridas de moda de mujer' },
-  { id: 5, alt: 'Detalle de prendas en exhibición' },
-  { id: 6, alt: 'Ambiente acogedor de la tienda' },
-  { id: 7, alt: 'Mostrador de atención al cliente' },
-  { id: 8, alt: 'Zona de probadores' },
-  { id: 9, alt: 'Exposición de vestidos de fiesta' },
-  { id: 10, alt: 'Colección de abrigos y chaquetas' },
-  { id: 11, alt: 'Prendas de punto y blusas' },
-  { id: 12, alt: 'Complementos y accesorios' },
-  { id: 13, alt: 'Ambiente exterior de la tienda' },
-  { id: 14, alt: 'Vista general del local' },
-  { id: 15, alt: 'Detalles decorativos' }
+  { 
+    id: 1, 
+    src: '/Galeria/video1.png',
+    alt: 'Interior de Unicca Moda - Tienda de moda de mujer en Chamartín',
+    aspectRatio: '4/5'
+  },
+  { 
+    id: 2, 
+    src: '/Galeria/video2.png',
+    alt: 'Escaparate de Unicca Moda con prendas de temporada',
+    aspectRatio: '4/5'
+  },
+  { 
+    id: 3, 
+    src: '/Galeria/video3.png',
+    alt: 'Ambiente de la tienda Unicca Moda',
+    aspectRatio: '4/5'
+  },
+  { 
+    id: 4, 
+    src: '/Galeria/video4.png',
+    alt: 'Colección de prendas en Unicca Moda',
+    aspectRatio: '4/5'
+  },
+  { 
+    id: 5, 
+    src: '/Galeria/video5.png',
+    alt: 'Detalle de moda de mujer en Unicca',
+    aspectRatio: '4/5'
+  },
 ]
 
 export default function GaleriaPage() {
@@ -51,29 +67,10 @@ export default function GaleriaPage() {
         </div>
       </section>
 
-      {/* Galería */}
+      {/* Galería con Lightbox */}
       <section className="py-16 bg-white">
         <div className="container">
-          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-            {galleryImages.map((image) => (
-              <div
-                key={image.id}
-                className="group relative break-inside-avoid mb-4 overflow-hidden bg-gradient-to-br from-stone-200 to-stone-100 border border-stone-200 hover:border-primary/30 transition-all duration-300 cursor-pointer"
-                style={{ aspectRatio: image.id % 3 === 0 ? '4/5' : image.id % 2 === 0 ? '1/1' : '3/4' }}
-              >
-                {/* Placeholder para imagen */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                  <ImageIcon className="h-8 w-8 text-stone-400 mb-3" />
-                  <p className="text-xs text-muted-foreground text-center line-clamp-2">
-                    {image.alt}
-                  </p>
-                </div>
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
-              </div>
-            ))}
-          </div>
+          <GalleryLightbox images={galleryImages} />
         </div>
       </section>
 
@@ -107,23 +104,15 @@ export default function GaleriaPage() {
 
               {/* Imagen destacada */}
               <div className="relative">
-                <div className="aspect-[4/5] bg-gradient-to-br from-stone-200 via-stone-100 to-stone-50 border border-stone-200 overflow-hidden">
-                  <div className="absolute inset-4 border border-primary/20"></div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                  <div className="text-center space-y-6">
-                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
-                    <p 
-                      className="text-primary/60 font-bold tracking-widest text-sm"
-                      style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                    >
-                      UNICCA
-                    </p>
-                      <p className="text-muted-foreground text-sm">
-                        Fachada floral próximamente
-                      </p>
-                      <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
-                    </div>
-                  </div>
+                <div className="aspect-[4/5] bg-stone-100 border border-stone-200 overflow-hidden">
+                  <Image
+                    src="/Galeria/video1.png"
+                    alt="Interior de Unicca Moda en Chamartín"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-4 border border-white/30 pointer-events-none"></div>
                 </div>
               </div>
             </div>
