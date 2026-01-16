@@ -34,7 +34,7 @@ export function ReviewsButtons() {
         onClick={handleViewReviewsClick}
         variant="outline"
         size="lg"
-        className="inline-flex items-center gap-2"
+        className="inline-flex items-center gap-2 text-foreground hover:text-foreground"
       >
         <ExternalLink className="h-5 w-5" />
         {siteConfig.copy.ctaReviews}
@@ -44,7 +44,7 @@ export function ReviewsButtons() {
         onClick={handleWriteReviewClick}
         variant="outline"
         size="lg"
-        className="inline-flex items-center gap-2"
+        className="inline-flex items-center gap-2 text-foreground hover:text-foreground"
       >
         <Plus className="h-5 w-5" />
         {siteConfig.copy.ctaWriteReview}

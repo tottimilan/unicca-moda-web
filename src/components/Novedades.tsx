@@ -1,54 +1,68 @@
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
-import { RefreshCw } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
+
+const categories = [
+  {
+    name: 'Vestidos',
+    description: 'Para cada ocasión',
+  },
+  {
+    name: 'Abrigos y chaquetas',
+    description: 'Elegancia que abriga',
+  },
+  {
+    name: 'Pantalones',
+    description: 'Comodidad y estilo',
+  },
+  {
+    name: 'Punto y blusas',
+    description: 'Prendas versátiles',
+  }
+]
 
 export function Novedades() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="container">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-            <RefreshCw className="h-4 w-4" />
-            Colección en constante renovación
-          </div>
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center space-y-6 mb-16">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 border border-primary/20 text-primary rounded-full text-sm tracking-wide uppercase">
+              <Sparkles className="h-4 w-4" />
+              Colección renovada
+            </div>
 
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Novedades frecuentes
+            <h2 className="text-4xl font-light tracking-tight">
+              Novedades <span className="italic">cada semana</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
               {siteConfig.copy.novedades}
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-sm">
-            <div className="space-y-2">
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">👗</span>
+          {/* Categories Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
+            {categories.map((category, index) => (
+              <div 
+                key={index}
+                className="group text-center"
+              >
+                <div className="aspect-[3/4] bg-gradient-to-b from-stone-100 to-stone-50 rounded-sm mb-4 flex items-end justify-center pb-8 border border-stone-200/50 group-hover:border-primary/30 transition-colors duration-300">
+                  <div className="w-16 h-0.5 bg-primary/40"></div>
+                </div>
+                <h3 className="font-medium text-foreground mb-1">{category.name}</h3>
+                <p className="text-sm text-muted-foreground">{category.description}</p>
               </div>
-              <p className="font-medium">Vestidos</p>
-            </div>
-            <div className="space-y-2">
-              <div className="aspect-square bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">🧥</span>
-              </div>
-              <p className="font-medium">Abrigos</p>
-            </div>
-            <div className="space-y-2">
-              <div className="aspect-square bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">👖</span>
-              </div>
-              <p className="font-medium">Pantalones</p>
-            </div>
-            <div className="space-y-2">
-              <div className="aspect-square bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">🧶</span>
-              </div>
-              <p className="font-medium">Punto</p>
-            </div>
+            ))}
           </div>
 
-          <div className="pt-8">
+          {/* CTA */}
+          <div className="text-center">
+            <p className="text-muted-foreground mb-6">
+              ¿Quieres saber qué ha llegado nuevo?
+            </p>
             <CTAWhatsApp messageKey="general" />
           </div>
         </div>

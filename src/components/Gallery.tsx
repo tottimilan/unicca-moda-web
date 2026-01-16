@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ArrowRight, Image as ImageIcon } from 'lucide-react'
 
 // Placeholder images - se reemplazarán con imágenes reales
 const galleryImages = [
@@ -12,11 +13,14 @@ const galleryImages = [
 
 export function Gallery() {
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="py-24 bg-stone-50">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Unicca por dentro
+          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+            Galería
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+            Unicca <span className="italic">por dentro</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Descubre el ambiente único de nuestra tienda
@@ -27,20 +31,18 @@ export function Gallery() {
           {galleryImages.map((image) => (
             <div
               key={image.id}
-              className="group relative aspect-square overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 hover:shadow-lg transition-shadow duration-200"
+              className="group relative aspect-square overflow-hidden bg-gradient-to-br from-stone-200 to-stone-100 border border-stone-200 hover:border-primary/30 transition-all duration-300"
             >
               {/* Placeholder para imagen */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <div className="text-4xl">📸</div>
-                  <p className="text-xs text-muted-foreground px-4">
-                    {image.alt}
-                  </p>
-                </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                <ImageIcon className="h-10 w-10 text-stone-400 mb-3" />
+                <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                  {image.alt}
+                </p>
               </div>
 
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200" />
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
             </div>
           ))}
         </div>
@@ -48,22 +50,10 @@ export function Gallery() {
         <div className="text-center mt-12">
           <Link
             href="/galeria"
-            className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
           >
             Ver galería completa
-            <svg
-              className="ml-2 h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

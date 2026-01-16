@@ -37,41 +37,41 @@ export function StickyActions() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex flex-col space-y-3">
-      {/* WhatsApp */}
+    <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+      {/* WhatsApp - Color verde de WhatsApp */}
       <button
         onClick={handleWhatsAppClick}
-        className="group relative bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="group relative bg-[#25D366] hover:bg-[#1ebe5b] text-white p-3.5 shadow-lg transition-all duration-300 hover:shadow-xl"
         aria-label="Contactar por WhatsApp"
       >
-        <MessageCircle className="h-6 w-6" />
-        <div className="absolute left-full ml-3 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+        <MessageCircle className="h-5 w-5" />
+        <span className="absolute left-full ml-4 px-3 py-1.5 bg-foreground text-background text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
           WhatsApp
-        </div>
+        </span>
       </button>
 
-      {/* Llamar */}
+      {/* Llamar - Color primario */}
       <button
         onClick={handleCallClick}
-        className="group relative bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="group relative bg-primary hover:bg-primary/90 text-primary-foreground p-3.5 shadow-lg transition-all duration-300 hover:shadow-xl"
         aria-label="Llamar por teléfono"
       >
-        <Phone className="h-6 w-6" />
-        <div className="absolute left-full ml-3 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+        <Phone className="h-5 w-5" />
+        <span className="absolute left-full ml-4 px-3 py-1.5 bg-foreground text-background text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
           Llamar
-        </div>
+        </span>
       </button>
 
-      {/* Cómo llegar */}
+      {/* Cómo llegar - Estilo outline */}
       <button
         onClick={handleDirectionsClick}
-        className="group relative bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="group relative bg-white border border-stone-300 hover:border-primary text-foreground p-3.5 shadow-lg transition-all duration-300 hover:shadow-xl"
         aria-label="Cómo llegar"
       >
-        <MapPin className="h-6 w-6" />
-        <div className="absolute left-full ml-3 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+        <MapPin className="h-5 w-5" />
+        <span className="absolute left-full ml-4 px-3 py-1.5 bg-foreground text-background text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
           Cómo llegar
-        </div>
+        </span>
       </button>
     </div>
   )

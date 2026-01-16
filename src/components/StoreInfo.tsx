@@ -29,13 +29,13 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
 
   if (compact) {
     return (
-      <div className={`space-y-2 ${className}`}>
-        <div className="flex items-center space-x-2 text-sm">
-          <MapPin className="h-4 w-4 text-muted-foreground" />
+      <div className={`space-y-3 ${className}`}>
+        <div className="flex items-center gap-3 text-sm">
+          <MapPin className="h-4 w-4 text-primary shrink-0" />
           <span>{siteConfig.address.full}</span>
         </div>
-        <div className="flex items-center space-x-2 text-sm">
-          <Phone className="h-4 w-4 text-muted-foreground" />
+        <div className="flex items-center gap-3 text-sm">
+          <Phone className="h-4 w-4 text-primary shrink-0" />
           <a
             href={siteConfig.links.call}
             onClick={handleCallClick}
@@ -44,8 +44,8 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
             {siteConfig.phone}
           </a>
         </div>
-        <div className="flex items-center space-x-2 text-sm">
-          <Clock className="h-4 w-4 text-muted-foreground" />
+        <div className="flex items-center gap-3 text-sm">
+          <Clock className="h-4 w-4 text-primary shrink-0" />
           <span>L-V: 11-14h / 17:30-21h | S: 11-14h</span>
         </div>
       </div>
@@ -53,11 +53,13 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
   }
 
   return (
-    <div className={`space-y-6 ${className}`}>
+    <div className={`space-y-8 ${className}`}>
       {/* Dirección */}
-      <div className="flex items-start space-x-3">
-        <MapPin className="h-5 w-5 text-primary mt-0.5" />
-        <div>
+      <div className="flex items-start gap-4">
+        <div className="p-3 border border-primary/20 text-primary shrink-0">
+          <MapPin className="h-5 w-5" />
+        </div>
+        <div className="space-y-2">
           <h3 className="font-medium">Dirección</h3>
           <p className="text-muted-foreground">{siteConfig.address.full}</p>
           {showActions && (
@@ -81,9 +83,11 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
       </div>
 
       {/* Teléfono */}
-      <div className="flex items-start space-x-3">
-        <Phone className="h-5 w-5 text-primary mt-0.5" />
-        <div>
+      <div className="flex items-start gap-4">
+        <div className="p-3 border border-primary/20 text-primary shrink-0">
+          <Phone className="h-5 w-5" />
+        </div>
+        <div className="space-y-2">
           <h3 className="font-medium">Teléfono</h3>
           <a
             href={siteConfig.links.call}
@@ -108,22 +112,24 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
       </div>
 
       {/* Horario */}
-      <div className="flex items-start space-x-3">
-        <Clock className="h-5 w-5 text-primary mt-0.5" />
-        <div>
+      <div className="flex items-start gap-4">
+        <div className="p-3 border border-primary/20 text-primary shrink-0">
+          <Clock className="h-5 w-5" />
+        </div>
+        <div className="space-y-2">
           <h3 className="font-medium">Horario</h3>
-          <div className="text-muted-foreground space-y-1">
-            <div className="flex justify-between">
-              <span>Lunes - Viernes:</span>
-              <span>11:00–14:00 / 17:30–21:00</span>
+          <div className="text-muted-foreground space-y-1 text-sm">
+            <div className="flex justify-between gap-8">
+              <span>Lunes - Viernes</span>
+              <span className="text-foreground">11:00–14:00 / 17:30–21:00</span>
             </div>
-            <div className="flex justify-between">
-              <span>Sábado:</span>
-              <span>11:00–14:00</span>
+            <div className="flex justify-between gap-8">
+              <span>Sábado</span>
+              <span className="text-foreground">11:00–14:00</span>
             </div>
-            <div className="flex justify-between">
-              <span>Domingo:</span>
-              <span>Cerrado</span>
+            <div className="flex justify-between gap-8">
+              <span>Domingo</span>
+              <span className="text-foreground">Cerrado</span>
             </div>
           </div>
         </div>
@@ -131,7 +137,7 @@ export function StoreInfo({ showActions = true, compact = false, className = '' 
 
       {/* WhatsApp */}
       {showActions && (
-        <div className="pt-4">
+        <div className="pt-4 border-t border-stone-200">
           <CTAWhatsApp />
         </div>
       )}

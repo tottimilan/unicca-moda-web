@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { siteConfig } from '@/content/site'
 import { Button } from '@/components/ui/button'
 import { Star, ExternalLink } from 'lucide-react'
@@ -61,11 +60,14 @@ export function Reviews() {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl font-bold tracking-tight">
-            {siteConfig.pages.opiniones.h1}
+          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+            Opiniones
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+            {siteConfig.pages.opiniones.h1.replace('Opiniones reales. ', '')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Lo que dicen nuestras clientas sobre Unicca Moda
@@ -76,21 +78,21 @@ export function Reviews() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-card p-6 rounded-xl border shadow-sm"
+              className="bg-stone-50 p-6 border border-stone-100 hover:border-primary/20 transition-colors duration-300"
             >
               <div className="space-y-4">
                 <div className="flex items-center space-x-1">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      className="h-4 w-4 fill-primary/80 text-primary/80"
                     />
                   ))}
                 </div>
-                <p className="text-muted-foreground italic leading-relaxed">
-                  "{review.text}"
+                <p className="text-muted-foreground leading-relaxed">
+                  &ldquo;{review.text}&rdquo;
                 </p>
-                <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center justify-between text-sm pt-4 border-t border-stone-200">
                   <span className="font-medium">{review.author}</span>
                   <span className="text-muted-foreground">{review.date}</span>
                 </div>

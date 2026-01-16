@@ -31,12 +31,15 @@ export function CTAWhatsApp({
     })
   }
 
+  // Para variante outline, mantener texto oscuro en hover
+  const outlineStyles = variant === 'outline' ? 'text-foreground hover:text-foreground' : ''
+
   return (
     <Button
       asChild
       variant={variant}
       size={size}
-      className={`inline-flex items-center gap-2 ${className}`}
+      className={`inline-flex items-center gap-2 ${outlineStyles} ${className}`}
       onClick={handleClick}
     >
       <a
@@ -70,14 +73,14 @@ export function WhatsAppFloatButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-colors duration-200 group"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5b] text-white p-4 shadow-lg transition-all duration-300 hover:shadow-xl group"
       onClick={handleClick}
       aria-label="Contactar por WhatsApp"
     >
       <MessageCircle className="h-6 w-6" />
-      <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+      <span className="absolute bottom-full right-0 mb-3 px-3 py-1.5 bg-foreground text-background text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
         {siteConfig.copy.ctaWhatsapp}
-      </div>
+      </span>
     </a>
   )
 }

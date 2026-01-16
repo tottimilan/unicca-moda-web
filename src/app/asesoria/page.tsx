@@ -1,8 +1,7 @@
 import { generateMetadata } from '@/lib/metadata'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
-import { Button } from '@/components/ui/button'
-import { ArrowRight, User, Calendar, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, User, Briefcase, PartyPopper, Plane } from 'lucide-react'
 
 export const metadata = generateMetadata({
   title: siteConfig.pages.asesoria.title,
@@ -28,45 +27,50 @@ const steps = [
   }
 ]
 
-const occasions = siteConfig.pages.asesoria.occasions.map(occasion => ({
-  title: occasion,
-  description: `Asesoramiento especializado para ${occasion.toLowerCase()}`,
-  icon: occasion === 'Diario con estilo' ? '👗' :
-        occasion === 'Oficina' ? '💼' :
-        occasion === 'Eventos' ? '🎉' : '🏖️'
-}))
+const occasionIcons = {
+  'Diario con estilo': User,
+  'Oficina': Briefcase,
+  'Eventos': PartyPopper,
+  'Viajes y fines de semana': Plane
+}
 
 export default function AsesoriaPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 to-emerald-100 py-20 lg:py-32">
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-28">
         <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
             {/* Contenido */}
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight lg:text-6xl">
+              <div className="space-y-6">
+                <p className="text-primary font-medium tracking-wide uppercase text-sm">
+                  Asesoría personalizada
+                </p>
+                <h1 className="text-4xl font-light tracking-tight lg:text-5xl xl:text-6xl leading-tight">
                   {siteConfig.pages.asesoria.h1}
                 </h1>
-                <p className="text-lg text-muted-foreground">
-                  Conchi te ayuda a encontrar las prendas que mejor te sientan
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                  Conchi te ayuda a encontrar las prendas que mejor te sientan. Atención cercana y sin prisas.
                 </p>
               </div>
 
-              <CTAWhatsApp messageKey="general" />
+              <CTAWhatsApp messageKey="general" size="lg" />
             </div>
 
             {/* Imagen placeholder */}
             <div className="relative">
-              <div className="aspect-square lg:aspect-[4/5] bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl shadow-2xl flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-24 h-24 bg-white/50 rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-3xl">💃</span>
+              <div className="aspect-[4/5] bg-gradient-to-br from-stone-200 via-stone-100 to-stone-50 border border-stone-200 overflow-hidden">
+                <div className="absolute inset-4 border border-primary/20"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+                  <div className="text-center space-y-6">
+                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
+                    <User className="h-12 w-12 text-primary/40 mx-auto" />
+                    <p className="text-muted-foreground text-sm">
+                      Asesoría personal próximamente
+                    </p>
+                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
                   </div>
-                  <p className="text-muted-foreground font-medium">
-                    Asesoría personal próximamente
-                  </p>
                 </div>
               </div>
             </div>
@@ -75,31 +79,32 @@ export default function AsesoriaPage() {
       </section>
 
       {/* Cómo funciona */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Cómo funciona
+            <p className="text-primary font-medium tracking-wide uppercase text-sm">
+              Proceso
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+              Cómo <span className="italic">funciona</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Un proceso simple para encontrar tu look perfecto
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="grid gap-8 md:grid-cols-3">
               {steps.map((step, index) => (
-                <div key={index} className="text-center space-y-6">
-                  <div className="relative">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-primary-foreground rounded-full text-xl font-bold">
-                      {step.step}
-                    </div>
-                    {index < steps.length - 1 && (
-                      <ArrowRight className="hidden md:block absolute top-8 -right-4 w-8 h-8 text-muted-foreground" />
-                    )}
+                <div key={index} className="relative text-center space-y-6 p-8 bg-stone-50 border border-stone-100">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-primary text-primary-foreground text-xl font-light">
+                    {step.step}
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">{step.title}</h3>
+                  {index < steps.length - 1 && (
+                    <ArrowRight className="hidden md:block absolute top-12 -right-4 w-8 h-8 text-stone-300 z-10" />
+                  )}
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-medium">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
                 </div>
@@ -110,77 +115,100 @@ export default function AsesoriaPage() {
       </section>
 
       {/* Para qué ocasiones */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-24 bg-stone-50">
         <div className="container">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Para qué ocasiones
+            <p className="text-primary font-medium tracking-wide uppercase text-sm">
+              Ocasiones
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+              Para qué <span className="italic">momentos</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Te ayudamos con cualquier estilo y momento
+              Te ayudamos con cualquier estilo y ocasión
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {occasions.map((occasion, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-sm border text-center space-y-4 hover:shadow-md transition-shadow">
-                <div className="text-4xl">{occasion.icon}</div>
-                <h3 className="font-semibold">{occasion.title}</h3>
-                <p className="text-sm text-muted-foreground">{occasion.description}</p>
-              </div>
-            ))}
+            {siteConfig.pages.asesoria.occasions.map((occasion, index) => {
+              const IconComponent = occasionIcons[occasion as keyof typeof occasionIcons] || User
+              return (
+                <div key={index} className="bg-white p-8 border border-stone-200 hover:border-primary/30 transition-colors duration-300 text-center group">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 border border-primary/20 flex items-center justify-center mx-auto group-hover:border-primary/40 transition-colors">
+                      <IconComponent className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-medium">{occasion}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Asesoramiento especializado
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Beneficios de la asesoría */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl font-bold tracking-tight">
-                ¿Por qué asesoría personal?
+              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+                Beneficios
+              </p>
+              <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+                ¿Por qué asesoría <span className="italic">personal</span>?
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Más que vender, queremos que encuentres lo que te hace sentir bien
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="flex items-start gap-4 p-6 bg-stone-50 border border-stone-100">
+                <div className="p-2 border border-primary/20 text-primary shrink-0">
+                  <CheckCircle className="h-4 w-4" />
+                </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Atención individual</h3>
+                  <h3 className="font-medium mb-2">Atención individual</h3>
                   <p className="text-muted-foreground">
                     Tiempo dedicado exclusivamente a ti, sin prisas
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4 p-6 bg-stone-50 border border-stone-100">
+                <div className="p-2 border border-primary/20 text-primary shrink-0">
+                  <CheckCircle className="h-4 w-4" />
+                </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Experiencia profesional</h3>
+                  <h3 className="font-medium mb-2">Experiencia profesional</h3>
                   <p className="text-muted-foreground">
                     Conchi conoce cada prenda y sabe cómo combinarlas
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4 p-6 bg-stone-50 border border-stone-100">
+                <div className="p-2 border border-primary/20 text-primary shrink-0">
+                  <CheckCircle className="h-4 w-4" />
+                </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Sin compromiso</h3>
+                  <h3 className="font-medium mb-2">Sin compromiso</h3>
                   <p className="text-muted-foreground">
                     Ven a probar, mira y decide con calma
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4 p-6 bg-stone-50 border border-stone-100">
+                <div className="p-2 border border-primary/20 text-primary shrink-0">
+                  <CheckCircle className="h-4 w-4" />
+                </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Resultados garantizados</h3>
+                  <h3 className="font-medium mb-2">Resultados garantizados</h3>
                   <p className="text-muted-foreground">
                     Sales vestida sí o sí, con prendas que te encantan
                   </p>
@@ -192,12 +220,12 @@ export default function AsesoriaPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight">
-                ¿Quieres que te asesoremos?
+              <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+                ¿Quieres que te <span className="italic">asesoremos</span>?
               </h2>
               <p className="text-lg opacity-90 max-w-2xl mx-auto">
                 {siteConfig.copy.whatsappToday}

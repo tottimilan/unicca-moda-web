@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Star, Quote } from 'lucide-react'
+import { Star, ArrowRight } from 'lucide-react'
 
 const featuredReviews = [
   {
@@ -21,11 +21,14 @@ const featuredReviews = [
 
 export function FeaturedReviews() {
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="py-24 bg-stone-50">
       <div className="container">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Sales vestida sí o sí
+          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+            Clientas satisfechas
+          </p>
+          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+            Sales vestida <span className="italic">sí o sí</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Nuestras clientas confían en nosotras para encontrar su look perfecto
@@ -36,23 +39,22 @@ export function FeaturedReviews() {
           {featuredReviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm border"
+              className="bg-white p-8 border border-stone-200 hover:border-primary/30 transition-colors duration-300"
             >
-              <div className="space-y-4">
-                <Quote className="h-8 w-8 text-primary/20" />
-                <p className="text-muted-foreground italic leading-relaxed">
-                  "{review.text}"
+              <div className="space-y-6">
+                <div className="flex items-center space-x-1">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-primary/80 text-primary/80"
+                    />
+                  ))}
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  &ldquo;{review.text}&rdquo;
                 </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm font-medium text-muted-foreground">
+                <div className="pt-4 border-t border-stone-100">
+                  <span className="text-sm font-medium">
                     {review.author}
                   </span>
                 </div>
@@ -64,22 +66,10 @@ export function FeaturedReviews() {
         <div className="text-center">
           <Link
             href="/opiniones"
-            className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
           >
             Ver todas las opiniones
-            <svg
-              className="ml-2 h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

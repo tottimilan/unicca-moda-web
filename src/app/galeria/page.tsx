@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
+import { Image as ImageIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.galeria.title,
@@ -30,14 +31,17 @@ export default function GaleriaPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 to-pink-100 py-20">
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight lg:text-6xl">
+            <div className="space-y-6">
+              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+                Galería
+              </p>
+              <h1 className="text-4xl font-light tracking-tight lg:text-5xl xl:text-6xl">
                 {siteConfig.pages.galeria.h1}
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 {siteConfig.pages.galeria.subtitle}
               </p>
             </div>
@@ -48,29 +52,25 @@ export default function GaleriaPage() {
       </section>
 
       {/* Galería */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container">
           <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
             {galleryImages.map((image) => (
               <div
                 key={image.id}
-                className="group relative break-inside-avoid mb-4 overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer"
-                style={{ aspectRatio: Math.random() > 0.5 ? '4/5' : '3/4' }}
+                className="group relative break-inside-avoid mb-4 overflow-hidden bg-gradient-to-br from-stone-200 to-stone-100 border border-stone-200 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                style={{ aspectRatio: image.id % 3 === 0 ? '4/5' : image.id % 2 === 0 ? '1/1' : '3/4' }}
               >
                 {/* Placeholder para imagen */}
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <div className="text-center space-y-2">
-                    <div className="text-3xl">
-                      {image.id <= 6 ? '🏪' : image.id <= 9 ? '👗' : image.id <= 12 ? '🧥' : '📸'}
-                    </div>
-                    <p className="text-xs text-muted-foreground line-clamp-2">
-                      {image.alt}
-                    </p>
-                  </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                  <ImageIcon className="h-8 w-8 text-stone-400 mb-3" />
+                  <p className="text-xs text-muted-foreground text-center line-clamp-2">
+                    {image.alt}
+                  </p>
                 </div>
 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
               </div>
             ))}
           </div>
@@ -78,37 +78,28 @@ export default function GaleriaPage() {
       </section>
 
       {/* Información adicional */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-24 bg-stone-50">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid gap-8 md:grid-cols-2 items-center">
-              <div className="space-y-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid gap-12 md:grid-cols-2 items-center">
+              <div className="space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-3xl font-bold tracking-tight">
-                    Conoce nuestro espacio
+                  <p className="text-primary font-medium tracking-wide uppercase text-sm">
+                    Nuestro espacio
+                  </p>
+                  <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+                    Conoce <span className="italic">el ambiente</span>
                   </h2>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
                     Un local cuidado al detalle donde cada prenda tiene su lugar y cada clienta se siente especial.
                   </p>
                 </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Ambiente acogedor y luminoso</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Prendas organizadas por estilos</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Zona de probadores cómodos</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Atención personalizada</span>
-                  </div>
+                <div className="space-y-4 border-l-2 border-primary/30 pl-6">
+                  <p className="text-muted-foreground">Ambiente acogedor y luminoso</p>
+                  <p className="text-muted-foreground">Prendas organizadas por estilos</p>
+                  <p className="text-muted-foreground">Zona de probadores cómodos</p>
+                  <p className="text-muted-foreground">Atención personalizada</p>
                 </div>
 
                 <CTAWhatsApp variant="outline" />
@@ -116,14 +107,22 @@ export default function GaleriaPage() {
 
               {/* Imagen destacada */}
               <div className="relative">
-                <div className="aspect-[4/5] bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl shadow-2xl flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-32 h-32 bg-white/50 rounded-full mx-auto flex items-center justify-center">
-                      <span className="text-5xl">💐</span>
-                    </div>
-                    <p className="text-muted-foreground font-medium">
-                      Fachada floral próximamente
+                <div className="aspect-[4/5] bg-gradient-to-br from-stone-200 via-stone-100 to-stone-50 border border-stone-200 overflow-hidden">
+                  <div className="absolute inset-4 border border-primary/20"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+                  <div className="text-center space-y-6">
+                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
+                    <p 
+                      className="text-primary/60 font-bold tracking-widest text-sm"
+                      style={{ fontFamily: '"Times New Roman", Times, serif' }}
+                    >
+                      UNICCA
                     </p>
+                      <p className="text-muted-foreground text-sm">
+                        Fachada floral próximamente
+                      </p>
+                      <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
+                    </div>
                   </div>
                 </div>
               </div>
