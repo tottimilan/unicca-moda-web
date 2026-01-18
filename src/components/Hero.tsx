@@ -112,37 +112,33 @@ export function Hero() {
           {/* Video/Imagen Hero */}
           <div className="relative w-full max-w-sm mx-auto lg:max-w-none">
             <div 
-              className="aspect-[4/5] md:aspect-[4/5] bg-stone-100 rounded-sm shadow-xl overflow-hidden relative cursor-pointer group"
+              className="aspect-[4/5] bg-stone-100 rounded-sm shadow-xl overflow-hidden relative cursor-pointer group"
               onClick={handlePlayClick}
             >
-              {/* Video */}
+              {/* Imagen siempre visible como fondo */}
+              <Image
+                src="/Hero/video1.png"
+                alt="Unicca Moda - Tienda de moda de mujer en Chamartín"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Video superpuesto */}
               <video
                 ref={videoRef}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
                   isPlaying ? 'opacity-100' : 'opacity-0'
                 }`}
-                src="/Hero/Unicca video1.mp4"
+                poster="/Hero/video1.png"
                 loop
                 muted={isMuted}
                 playsInline
-                preload="metadata"
-              />
-
-              {/* Thumbnail (imagen de portada) */}
-              <div 
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                  isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                }`}
+                preload="none"
               >
-                <Image
-                  src="/Hero/video1.png"
-                  alt="Unicca Moda - Tienda de moda de mujer en Chamartín"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+                <source src="/Hero/Unicca video1.mp4" type="video/mp4" />
+              </video>
 
               {/* Play button overlay */}
               <div 
@@ -150,16 +146,16 @@ export function Hero() {
                   isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 md:p-5 shadow-lg transform transition-transform duration-300 group-hover:scale-110">
-                  <Play className="h-6 w-6 md:h-8 md:w-8 text-primary fill-primary" />
+                <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg">
+                  <Play className="h-6 w-6 text-primary fill-primary" />
                 </div>
               </div>
 
               {/* Pause indicator */}
               {isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-black/40 backdrop-blur-sm rounded-full p-3 md:p-4">
-                    <Pause className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                  <div className="bg-black/40 backdrop-blur-sm rounded-full p-3">
+                    <Pause className="h-5 w-5 text-white" />
                   </div>
                 </div>
               )}
@@ -168,25 +164,22 @@ export function Hero() {
               {isPlaying && (
                 <button
                   onClick={handleMuteToggle}
-                  className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-black/50 backdrop-blur-sm rounded-full p-2.5 md:p-3 text-white hover:bg-black/70 transition-all duration-300 z-10"
+                  className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-2.5 text-white z-10"
                   aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
                 >
                   {isMuted ? (
-                    <VolumeX className="h-4 w-4 md:h-5 md:w-5" />
+                    <VolumeX className="h-4 w-4" />
                   ) : (
-                    <Volume2 className="h-4 w-4 md:h-5 md:w-5" />
+                    <Volume2 className="h-4 w-4" />
                   )}
                 </button>
               )}
-
-              {/* Decorative frame - solo en desktop */}
-              <div className="hidden md:block absolute inset-4 border border-white/30 rounded-sm pointer-events-none"></div>
             </div>
 
-            {/* Floating badge - ajustado para móvil */}
-            <div className="absolute -bottom-3 left-0 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground px-4 py-3 md:px-6 md:py-4 shadow-lg">
-              <p className="text-[10px] md:text-xs uppercase tracking-wider mb-0.5 md:mb-1 opacity-80">Desde hace</p>
-              <p className="text-xl md:text-2xl font-light">15+ años</p>
+            {/* Floating badge */}
+            <div className="absolute -bottom-3 left-2 md:-bottom-4 md:left-0 bg-primary text-primary-foreground px-4 py-2 md:px-5 md:py-3 shadow-lg">
+              <p className="text-[10px] uppercase tracking-wider opacity-80">Desde hace</p>
+              <p className="text-lg md:text-xl font-light">15+ años</p>
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ export function Header() {
   }, [mobileMenuOpen])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white">
       <div className="container px-4 flex h-14 md:h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
@@ -92,44 +92,34 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation - Full screen overlay */}
-      <div 
-        className={cn(
-          "lg:hidden fixed inset-0 top-14 bg-white z-40 transition-transform duration-300 ease-in-out",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <nav className="container px-4 py-6 flex flex-col h-full">
-          <div className="space-y-1 flex-1">
-            {navigation.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "block py-4 px-2 text-lg border-b border-stone-100 transition-all",
-                  pathname === item.href
-                    ? "text-primary font-medium"
-                    : "text-foreground"
-                )}
-                style={{ 
-                  animationDelay: `${index * 50}ms`,
-                  animation: mobileMenuOpen ? 'slideIn 0.3s ease forwards' : 'none'
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          
-          <div className="pt-6 pb-20 space-y-4">
-            <CTAWhatsApp className="w-full justify-center" size="lg" />
-            <p className="text-center text-sm text-muted-foreground">
-              {siteConfig.phone}
-            </p>
-          </div>
-        </nav>
-      </div>
+      {/* Mobile Navigation - Simple dropdown */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden absolute top-14 left-0 right-0 bg-white border-b border-stone-200 shadow-lg z-40">
+          <nav className="container px-4 py-4">
+            <div className="space-y-1">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "block py-3 px-3 rounded-md transition-colors",
+                    pathname === item.href
+                      ? "text-primary font-medium bg-stone-50"
+                      : "text-foreground hover:bg-stone-50"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            
+            <div className="mt-4 pt-4 border-t border-stone-100">
+              <CTAWhatsApp className="w-full justify-center" />
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

@@ -47,75 +47,40 @@ export default function GaleriaPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-24">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-6">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
-                Galería
-              </p>
-              <h1 className="text-4xl font-light tracking-tight lg:text-5xl xl:text-6xl">
-                {siteConfig.pages.galeria.h1}
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                {siteConfig.pages.galeria.subtitle}
-              </p>
-            </div>
-
-            <CTAWhatsApp />
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-10 md:py-16">
+        <div className="container px-4">
+          <div className="max-w-2xl mx-auto text-center space-y-4">
+            <p className="text-primary font-medium tracking-wide uppercase text-xs">
+              Galería
+            </p>
+            <h1 className="text-2xl md:text-3xl font-light tracking-tight">
+              {siteConfig.pages.galeria.h1}
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              {siteConfig.pages.galeria.subtitle}
+            </p>
           </div>
         </div>
       </section>
 
       {/* Galería con Lightbox */}
-      <section className="py-16 bg-white">
-        <div className="container">
+      <section className="py-6 md:py-12 bg-white">
+        <div className="container px-4">
           <GalleryLightbox images={galleryImages} />
         </div>
       </section>
 
-      {/* Información adicional */}
-      <section className="py-24 bg-stone-50">
-        <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid gap-12 md:grid-cols-2 items-center">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <p className="text-primary font-medium tracking-wide uppercase text-sm">
-                    Nuestro espacio
-                  </p>
-                  <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
-                    Conoce <span className="italic">el ambiente</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Un local cuidado al detalle donde cada prenda tiene su lugar y cada clienta se siente especial.
-                  </p>
-                </div>
-
-                <div className="space-y-4 border-l-2 border-primary/30 pl-6">
-                  <p className="text-muted-foreground">Ambiente acogedor y luminoso</p>
-                  <p className="text-muted-foreground">Prendas organizadas por estilos</p>
-                  <p className="text-muted-foreground">Zona de probadores cómodos</p>
-                  <p className="text-muted-foreground">Atención personalizada</p>
-                </div>
-
-                <CTAWhatsApp variant="outline" />
-              </div>
-
-              {/* Imagen destacada */}
-              <div className="relative">
-                <div className="aspect-[4/5] bg-stone-100 border border-stone-200 overflow-hidden">
-                  <Image
-                    src="/Galeria/video1.png"
-                    alt="Interior de Unicca Moda en Chamartín"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-4 border border-white/30 pointer-events-none"></div>
-                </div>
-              </div>
-            </div>
+      {/* CTA */}
+      <section className="py-10 md:py-16 bg-stone-50 border-t border-stone-200">
+        <div className="container px-4">
+          <div className="max-w-xl mx-auto text-center space-y-4">
+            <h2 className="text-xl md:text-2xl font-light tracking-tight">
+              Ven a conocer <span className="italic">el ambiente</span>
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Un local cuidado al detalle donde cada clienta se siente especial
+            </p>
+            <CTAWhatsApp />
           </div>
         </div>
       </section>

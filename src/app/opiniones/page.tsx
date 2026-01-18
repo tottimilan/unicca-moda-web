@@ -107,7 +107,7 @@ export default function OpinionesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-24">
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-12 lg:py-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-6">
@@ -128,7 +128,7 @@ export default function OpinionesPage() {
       </section>
 
       {/* Estadísticas */}
-      <section className="py-16 bg-white border-y border-stone-200">
+      <section className="py-10 lg:py-16 bg-white border-y border-stone-200">
         <div className="container">
           <div className="grid gap-8 md:grid-cols-2 max-w-2xl mx-auto">
             {stats.map((stat, index) => (
@@ -145,7 +145,7 @@ export default function OpinionesPage() {
       </section>
 
       {/* Todas las reseñas */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-12 lg:py-24 bg-stone-50">
         <div className="container">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {allReviews.map((review, index) => (
@@ -184,7 +184,7 @@ export default function OpinionesPage() {
       </section>
 
       {/* Llamado a acción */}
-      <section className="py-24 bg-primary text-primary-foreground">
+      <section className="py-12 lg:py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">

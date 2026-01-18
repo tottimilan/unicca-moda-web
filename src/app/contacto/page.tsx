@@ -34,7 +34,7 @@ export default function ContactoPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-24">
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-12 lg:py-24">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-6">
@@ -53,7 +53,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Información de contacto */}
-      <section className="py-24 bg-white">
+      <section className="py-12 lg:py-24 bg-white">
         <div className="container">
           <div className="grid gap-16 lg:grid-cols-2">
             {/* Información detallada */}
@@ -108,7 +108,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Cómo llegar */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-12 lg:py-24 bg-stone-50">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -166,7 +166,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Redes sociales */}
-      <section className="py-24 bg-primary text-primary-foreground">
+      <section className="py-12 lg:py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">

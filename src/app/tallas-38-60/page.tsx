@@ -35,7 +35,7 @@ export default function TallasPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-28">
+      <section className="relative bg-gradient-to-b from-stone-50 to-white py-12 lg:py-28">
         <div className="container">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
             {/* Contenido */}
@@ -76,7 +76,7 @@ export default function TallasPage() {
       </section>
 
       {/* El estilo no tiene talla */}
-      <section className="py-24 bg-white">
+      <section className="py-12 lg:py-24 bg-white">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-4 mb-16">
@@ -109,7 +109,7 @@ export default function TallasPage() {
       </section>
 
       {/* Qué encontrarás */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-12 lg:py-24 bg-stone-50">
         <div className="container">
           <div className="text-center space-y-4 mb-16">
             <p className="text-primary font-medium tracking-wide uppercase text-sm">
@@ -149,7 +149,7 @@ export default function TallasPage() {
       />
 
       {/* CTA Final */}
-      <section className="py-24 bg-primary text-primary-foreground">
+      <section className="py-12 lg:py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
