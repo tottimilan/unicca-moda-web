@@ -11,6 +11,7 @@ export type AnalyticsEvent =
   | 'click_directions'
   | 'click_reviews_view'
   | 'click_reviews_write'
+  | 'hero_video_interaction'
 
 // Función para enviar eventos a Google Analytics
 export function gtag(event: string, parameters?: Record<string, any>) {
@@ -34,9 +35,10 @@ export function trackEvent(
     button_location?: string
     label?: string
     value?: number
+    action?: string
   } = {}
 ) {
-  const { page = 'unknown', button_location = 'unknown', label, value } = options
+  const { page = 'unknown', button_location = 'unknown', label, value, action } = options
 
   // Parámetros comunes
   const eventParams = {
@@ -44,6 +46,7 @@ export function trackEvent(
     button_location,
     label,
     value,
+    action,
     timestamp: new Date().toISOString()
   }
 
@@ -70,6 +73,14 @@ export function trackEvent(
       fbq('ViewContent', {
         content_type: 'reviews',
         content_name: event,
+        ...eventParams
+      })
+      break
+
+    case 'hero_video_interaction':
+      fbq('ViewContent', {
+        content_type: 'video',
+        content_name: 'hero_video',
         ...eventParams
       })
       break

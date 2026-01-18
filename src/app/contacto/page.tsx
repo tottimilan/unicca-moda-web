@@ -77,29 +77,31 @@ export default function ContactoPage() {
                 {siteConfig.pages.contacto.howToArrive}
               </p>
 
-              {/* Mapa embebido placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-stone-200 to-stone-100 flex items-center justify-center border border-stone-200">
-                <div className="text-center space-y-4 p-8">
-                  <div className="w-12 h-12 border border-primary/20 flex items-center justify-center mx-auto">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="space-y-3">
-                    <p className="font-medium">Mapa interactivo de Google Maps</p>
-                    <p className="text-sm text-muted-foreground">
-                      Se integrará el iframe oficial de Google Maps
-                    </p>
-                    <Button asChild variant="outline">
-                      <a
-                        href={siteConfig.links.directions}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Ver en Google Maps
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+              {/* Mapa de Google Maps */}
+              <div className="aspect-video bg-stone-100 border border-stone-200 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.0095!2d-3.6739!3d40.4456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422886c89ed34b%3A0x61547f2d031a1b79!2sUnicca%20Moda!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Unicca Moda en Google Maps"
+                ></iframe>
               </div>
+              
+              <Button asChild variant="outline" className="w-full sm:w-auto">
+                <a
+                  href={siteConfig.links.directions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <MapPin className="h-4 w-4" />
+                  Abrir en Google Maps
+                </a>
+              </Button>
             </div>
           </div>
         </div>

@@ -50,10 +50,10 @@ export const siteConfig = {
       }
     },
     call: 'tel:+34639429780',
-    directions: 'https://www.google.com/maps/search/?api=1&query=C.%20de%20Cartagena%2C%20138%2C%2028002%20Madrid',
+    directions: 'https://maps.app.goo.gl/nnVeMxDNnDjnm4yk6',
     reviews: {
-      view: '', // Pendiente de URL exacta de Google
-      write: '' // Pendiente de URL exacta de Google
+      view: 'https://www.google.com/search?sca_esv=c889e3cf512c13a4&sxsrf=ANbL-n6xqmicXIZ91PjYMHHs59AuqMuwqg:1768744191130&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWn4j5dY6cpcw2daudRdqWiVQBvAUgGVSMqt3b674PHVLFMuiDYcChj6Yhpjs7_I23nMm11AgjEbC9NxMlVkBvDsv634&q=Unicca+Moda+Rese%C3%B1as&sa=X&ved=2ahUKEwiCw9fJnZWSAxWDlokEHRzjAdkQ0bkNegQINRAF&biw=1707&bih=932&dpr=1.5&aic=0',
+      write: 'https://g.page/r/CXsbGgMt_1RhEBM/review'
     }
   },
 

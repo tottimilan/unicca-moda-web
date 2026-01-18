@@ -12,7 +12,7 @@ export function ReviewsButtons() {
       button_location: 'reviews_page'
     })
 
-    if (siteConfig.links.reviews.view && siteConfig.links.reviews.view !== '#') {
+    if (siteConfig.links.reviews.view) {
       window.open(siteConfig.links.reviews.view, '_blank', 'noopener,noreferrer')
     }
   }
@@ -23,7 +23,7 @@ export function ReviewsButtons() {
       button_location: 'reviews_page'
     })
 
-    if (siteConfig.links.reviews.write && siteConfig.links.reviews.write !== '#') {
+    if (siteConfig.links.reviews.write) {
       window.open(siteConfig.links.reviews.write, '_blank', 'noopener,noreferrer')
     }
   }
