@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/content/site'
 import { ReviewsButtons } from '@/components/ReviewsButtons'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
-import { Star, Users, Award, Ruler } from 'lucide-react'
+import { Star, Award, Ruler } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: siteConfig.pages.opiniones.title,
@@ -98,8 +98,6 @@ const allReviews = [
 ]
 
 const stats = [
-  { label: 'Reseñas', value: '150+', Icon: Star },
-  { label: 'Clientas satisfechas', value: '500+', Icon: Users },
   { label: 'Años de experiencia', value: '15+', Icon: Award },
   { label: 'Tallas disponibles', value: '38-60', Icon: Ruler }
 ]
@@ -132,7 +130,7 @@ export default function OpinionesPage() {
       {/* Estadísticas */}
       <section className="py-16 bg-white border-y border-stone-200">
         <div className="container">
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 max-w-2xl mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="text-center space-y-4">
                 <div className="w-12 h-12 border border-primary/20 flex items-center justify-center mx-auto">

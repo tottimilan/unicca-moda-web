@@ -13,10 +13,41 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.pages.home.title,
+  metadataBase: new URL('https://unicca-moda.com'),
+  title: {
+    default: siteConfig.pages.home.title,
+    template: '%s | Unicca Moda'
+  },
   description: siteConfig.pages.home.description,
-  keywords: ["ropa mujer", "tallas grandes", "tallas 38-60", "Chamartín", "Madrid", "moda mujer"],
-  authors: [{ name: siteConfig.name }],
+  keywords: [
+    "ropa mujer Madrid",
+    "tallas grandes Madrid",
+    "tallas 38-60",
+    "tienda tallas grandes Chamartín",
+    "moda mujer tallas grandes",
+    "vestidos tallas grandes Madrid",
+    "ropa talla 50 Madrid",
+    "ropa talla 52 Madrid", 
+    "ropa talla 54 Madrid",
+    "ropa talla 56 Madrid",
+    "ropa talla 58 Madrid",
+    "ropa talla 60 Madrid",
+    "tienda ropa mujer Chamartín",
+    "asesoría de imagen Madrid",
+    "moda curvy Madrid",
+    "plus size Madrid"
+  ],
+  authors: [{ name: siteConfig.name, url: 'https://unicca-moda.com' }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: 'https://unicca-moda.com',
+  },
   openGraph: {
     title: siteConfig.pages.home.title,
     description: siteConfig.pages.home.description,
@@ -24,11 +55,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "es_ES",
     type: "website",
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Unicca Moda - Tienda de ropa de mujer en Chamartín, Madrid',
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.pages.home.title,
     description: siteConfig.pages.home.description,
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -41,7 +81,39 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    // Añadir cuando se tenga la verificación de Google
+    // google: 'verification_token',
+  },
+  category: 'shopping',
 };
+
+// FAQPage Schema para rich snippets
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: siteConfig.faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+}
+
+// WebSite Schema para sitelinks search box
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Unicca Moda',
+  url: 'https://unicca-moda.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://unicca-moda.com/?s={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+}
 
 export default function RootLayout({
   children,
@@ -51,10 +123,32 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Favicon y iconos */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#6e4936" />
+        
+        {/* Schema.org - LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(siteConfig.schema),
+          }}
+        />
+        {/* Schema.org - FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+        {/* Schema.org - WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>

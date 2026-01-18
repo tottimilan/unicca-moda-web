@@ -149,3 +149,72 @@ body {
 .prose li {
   margin-bottom: 0.5rem;
 }
+
+/* Safe area para dispositivos con notch */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Mejoras de scroll para móvil */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ocultar scrollbar en scroll horizontal en móvil */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-x-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mejora de touch en móvil */
+@media (hover: none) {
+  .hover\:scale-110:hover {
+    transform: none;
+  }
+  
+  .group:hover .group-hover\:translate-x-1 {
+    transform: none;
+  }
+}
+
+/* Transiciones suaves */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix para el contenido cuando hay barra fija abajo */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 64px;
+  }
+}
+
+/* Animación para menú móvil */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Botones más grandes y accesibles en móvil */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

@@ -47,42 +47,44 @@ export function Hero() {
   }
 
   return (
-    <section className="relative bg-gradient-to-b from-stone-50 to-white py-20 lg:py-28 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-stone-100/50 to-transparent pointer-events-none"></div>
+    <section className="relative bg-gradient-to-b from-stone-50 to-white py-10 md:py-16 lg:py-28 overflow-hidden">
+      {/* Decorative elements - oculto en móvil */}
+      <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-stone-100/50 to-transparent pointer-events-none"></div>
       
-      <div className="container relative">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+      <div className="container px-4 relative">
+        {/* En móvil: primero video, luego contenido */}
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
           {/* Contenido */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-primary font-medium tracking-wide uppercase text-xs md:text-sm">
                 {siteConfig.tagline}
               </p>
-              <h1 className="text-4xl font-light tracking-tight lg:text-5xl xl:text-6xl leading-tight">
+              <h1 className="text-3xl md:text-4xl font-light tracking-tight lg:text-5xl xl:text-6xl leading-tight">
                 Moda de mujer en <span className="italic">Chamartín</span>
-                <span className="block mt-2 text-primary font-normal">Tallas 38–60</span>
+                <span className="block mt-1 md:mt-2 text-primary font-normal">Tallas 38–60</span>
               </h1>
-              <div className="space-y-3 text-lg text-muted-foreground leading-relaxed max-w-lg">
+              <div className="space-y-2 md:space-y-3 text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0">
                 <p>{siteConfig.pages.home.heroSubtitle[0]}</p>
-                <p>{siteConfig.pages.home.heroSubtitle[1]}</p>
+                <p className="hidden md:block">{siteConfig.pages.home.heroSubtitle[1]}</p>
               </div>
             </div>
 
             {/* CTAs principales */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <CTAWhatsApp size="lg" />
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+              <CTAWhatsApp size="lg" className="w-full sm:w-auto" />
               <Button
                 asChild
                 variant="outline"
                 size="lg"
                 onClick={handleDirectionsClick}
+                className="w-full sm:w-auto"
               >
                 <a
                   href={siteConfig.links.directions}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
+                  className="inline-flex items-center justify-center gap-2"
                 >
                   <MapPin className="h-4 w-4" />
                   {siteConfig.copy.ctaDirections}
@@ -90,8 +92,8 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Info rápida */}
-            <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4 border-t border-stone-200">
+            {/* Info rápida - oculto en móvil pequeño */}
+            <div className="hidden sm:flex flex-wrap gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground pt-4 border-t border-stone-200 justify-center lg:justify-start">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
                 <span>Atención personalizada</span>
@@ -108,9 +110,9 @@ export function Hero() {
           </div>
 
           {/* Video/Imagen Hero */}
-          <div className="relative">
+          <div className="relative w-full max-w-sm mx-auto lg:max-w-none">
             <div 
-              className="aspect-[4/5] bg-stone-100 rounded-sm shadow-xl overflow-hidden relative cursor-pointer group"
+              className="aspect-[4/5] md:aspect-[4/5] bg-stone-100 rounded-sm shadow-xl overflow-hidden relative cursor-pointer group"
               onClick={handlePlayClick}
             >
               {/* Video */}
@@ -148,16 +150,16 @@ export function Hero() {
                   isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'
                 }`}
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-full p-5 shadow-lg transform transition-transform duration-300 group-hover:scale-110">
-                  <Play className="h-8 w-8 text-primary fill-primary" />
+                <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 md:p-5 shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                  <Play className="h-6 w-6 md:h-8 md:w-8 text-primary fill-primary" />
                 </div>
               </div>
 
-              {/* Pause indicator (shows briefly on pause) */}
+              {/* Pause indicator */}
               {isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-black/40 backdrop-blur-sm rounded-full p-4">
-                    <Pause className="h-6 w-6 text-white" />
+                  <div className="bg-black/40 backdrop-blur-sm rounded-full p-3 md:p-4">
+                    <Pause className="h-5 w-5 md:h-6 md:w-6 text-white" />
                   </div>
                 </div>
               )}
@@ -166,25 +168,25 @@ export function Hero() {
               {isPlaying && (
                 <button
                   onClick={handleMuteToggle}
-                  className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm rounded-full p-3 text-white hover:bg-black/70 transition-all duration-300 z-10"
+                  className="absolute bottom-3 right-3 md:bottom-4 md:right-4 bg-black/50 backdrop-blur-sm rounded-full p-2.5 md:p-3 text-white hover:bg-black/70 transition-all duration-300 z-10"
                   aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
                 >
                   {isMuted ? (
-                    <VolumeX className="h-5 w-5" />
+                    <VolumeX className="h-4 w-4 md:h-5 md:w-5" />
                   ) : (
-                    <Volume2 className="h-5 w-5" />
+                    <Volume2 className="h-4 w-4 md:h-5 md:w-5" />
                   )}
                 </button>
               )}
 
-              {/* Decorative frame */}
-              <div className="absolute inset-4 border border-white/30 rounded-sm pointer-events-none"></div>
+              {/* Decorative frame - solo en desktop */}
+              <div className="hidden md:block absolute inset-4 border border-white/30 rounded-sm pointer-events-none"></div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-6 py-4 shadow-lg">
-              <p className="text-xs uppercase tracking-wider mb-1 opacity-80">Desde hace</p>
-              <p className="text-2xl font-light">15+ años</p>
+            {/* Floating badge - ajustado para móvil */}
+            <div className="absolute -bottom-3 left-0 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground px-4 py-3 md:px-6 md:py-4 shadow-lg">
+              <p className="text-[10px] md:text-xs uppercase tracking-wider mb-0.5 md:mb-1 opacity-80">Desde hace</p>
+              <p className="text-xl md:text-2xl font-light">15+ años</p>
             </div>
           </div>
         </div>

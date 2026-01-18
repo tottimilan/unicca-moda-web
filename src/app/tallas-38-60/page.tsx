@@ -1,32 +1,35 @@
-import { generateMetadata } from '@/lib/metadata'
+import type { Metadata } from 'next'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
-import { CheckCircle, HelpCircle, Shirt, ShoppingBag } from 'lucide-react'
+import { FAQs } from '@/components/FAQs'
+import { CheckCircle, Shirt, ShoppingBag } from 'lucide-react'
 
-export const metadata = generateMetadata({
-  title: siteConfig.pages.tallas.title,
-  description: siteConfig.pages.tallas.description,
-  url: 'https://unicca-moda.com/tallas-38-60'
-})
-
-const faqs = [
-  {
-    question: siteConfig.faqs.tallas.question,
-    answer: siteConfig.faqs.tallas.answer
+export const metadata: Metadata = {
+  title: 'Tallas Grandes 38-60 Madrid | Ropa Mujer Tallas 50, 52, 54, 56, 58, 60',
+  description: 'Tienda especializada en tallas grandes en Madrid. Ropa de mujer tallas 38-60 con cortes favorecedores. Vestidos, pantalones, blusas y más. Asesoría personalizada en Chamartín.',
+  keywords: [
+    'tallas grandes Madrid',
+    'ropa talla 50 Madrid',
+    'ropa talla 52 Madrid',
+    'ropa talla 54 Madrid',
+    'ropa talla 56 Madrid',
+    'ropa talla 58 Madrid',
+    'ropa talla 60 Madrid',
+    'vestidos tallas grandes',
+    'pantalones tallas grandes Madrid',
+    'moda curvy Madrid',
+    'plus size Madrid',
+    'tienda tallas grandes Chamartín'
+  ],
+  alternates: {
+    canonical: 'https://unicca-moda.com/tallas-38-60',
   },
-  {
-    question: siteConfig.faqs.ayuda.question,
-    answer: siteConfig.faqs.ayuda.answer
+  openGraph: {
+    title: 'Tallas Grandes 38-60 en Madrid | Unicca Moda',
+    description: 'Especialistas en moda de mujer tallas grandes. Vestidos, pantalones, blusas y más en tallas 38-60 con asesoría personalizada.',
+    url: 'https://unicca-moda.com/tallas-38-60',
   },
-  {
-    question: siteConfig.faqs.eventos.question,
-    answer: siteConfig.faqs.eventos.answer
-  },
-  {
-    question: siteConfig.faqs.cambio.question,
-    answer: siteConfig.faqs.cambio.answer
-  }
-]
+}
 
 export default function TallasPage() {
   return (
@@ -138,37 +141,12 @@ export default function TallasPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-24 bg-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center space-y-4 mb-16">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
-                Dudas resueltas
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
-                Preguntas <span className="italic">frecuentes</span>
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-stone-50 p-6 border border-stone-100 hover:border-primary/20 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 border border-primary/20 text-primary shrink-0">
-                      <HelpCircle className="h-4 w-4" />
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="font-medium">{faq.question}</h3>
-                      <p className="text-muted-foreground">{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ - Preguntas sobre tallas grandes */}
+      <FAQs 
+        indices={[0, 1, 2, 3, 4, 9, 10]} 
+        title="Preguntas frecuentes sobre tallas grandes"
+        subtitle="Resolvemos tus dudas"
+      />
 
       {/* CTA Final */}
       <section className="py-24 bg-primary text-primary-foreground">

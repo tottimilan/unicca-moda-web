@@ -129,32 +129,74 @@ export const siteConfig = {
     styleNoSize: 'El estilo no tiene talla'
   },
 
-  // FAQs para SEO (sin blog)
-  faqs: {
-    tallas: {
-      question: '¿Qué tallas trabajáis?',
-      answer: 'Trabajamos tallas 38–60'
+  // FAQs para SEO - Especialmente sobre tallas grandes (nicho principal)
+  faqs: [
+    {
+      question: '¿Qué tallas de ropa tenéis disponibles?',
+      answer: 'Trabajamos tallas de la 38 a la 60. Somos especialistas en tallas grandes y tenemos una amplia variedad de prendas favorecedoras para todas las tallas.'
     },
-    ayuda: {
-      question: '¿Me ayudáis a elegir?',
-      answer: 'Sí, tenemos asesoría personal en tienda'
+    {
+      question: '¿Tenéis ropa de tallas grandes en Madrid?',
+      answer: 'Sí, somos una tienda especializada en tallas grandes en Madrid, ubicada en el barrio de Chamartín. Tenemos vestidos, pantalones, blusas, abrigos y complementos en tallas 38-60.'
     },
-    eventos: {
-      question: '¿Tenéis ropa para eventos?',
-      answer: 'Sí, suele haber opciones para eventos'
+    {
+      question: '¿Qué tipo de ropa tenéis para tallas 50, 52, 54, 56, 58 y 60?',
+      answer: 'Tenemos todo tipo de prendas en tallas grandes: vestidos de fiesta, ropa casual, conjuntos de oficina, abrigos, pantalones, blusas, faldas y complementos. Todo seleccionado con cortes que favorecen y estilizan.'
     },
-    cambio: {
-      question: '¿Cada cuánto cambian las prendas?',
-      answer: 'Traemos novedades frecuentes'
+    {
+      question: '¿Me ayudáis a elegir la ropa que mejor me sienta?',
+      answer: 'Por supuesto. Conchi te asesora personalmente para encontrar las prendas que mejor te favorecen según tu tipo de cuerpo, estilo y ocasión. Es nuestro valor diferencial.'
+    },
+    {
+      question: '¿Tenéis vestidos de fiesta en tallas grandes?',
+      answer: 'Sí, tenemos una selección de vestidos para eventos, bodas, comuniones y celebraciones en todas las tallas hasta la 60. Prendas elegantes con cortes estudiados para favorecer.'
+    },
+    {
+      question: '¿Cada cuánto recibís ropa nueva?',
+      answer: 'Recibimos novedades semanalmente. Las colecciones cambian continuamente, por eso recomendamos visitarnos con frecuencia o escribirnos por WhatsApp para ver las últimas llegadas.'
+    },
+    {
+      question: '¿Dónde está la tienda Unicca Moda?',
+      answer: 'Estamos en la Calle de Cartagena 138, en el barrio de Chamartín, Madrid (28002). Fácil acceso en metro, bus y con aparcamiento cercano.'
+    },
+    {
+      question: '¿Cuál es el horario de la tienda?',
+      answer: 'Abrimos de lunes a viernes de 11:00 a 14:00 y de 17:30 a 21:00. Los sábados de 11:00 a 14:00. Domingos cerrado.'
+    },
+    {
+      question: '¿Puedo pedir cita para asesoramiento personalizado?',
+      answer: 'No es necesaria cita previa, pero si quieres que te atendamos con más calma, escríbenos por WhatsApp y te decimos el mejor momento para venir.'
+    },
+    {
+      question: '¿Tenéis ropa cómoda para el día a día en tallas grandes?',
+      answer: 'Sí, tenemos ropa casual y cómoda perfecta para el día a día: pantalones, blusas, punto, chaquetas... Todo en tallas hasta la 60 y con tejidos de calidad.'
+    },
+    {
+      question: '¿La ropa de tallas grandes también está de moda?',
+      answer: 'Absolutamente. Seleccionamos prendas modernas, con color y estilo, que siguen las tendencias actuales. Creemos que el estilo no tiene talla.'
+    },
+    {
+      question: '¿Tenéis complementos y accesorios?',
+      answer: 'Sí, además de ropa tenemos bolsos, pañuelos, bisutería y otros complementos para completar tu look.'
     }
-  },
+  ],
 
-  // Schema.org JSON-LD
+  // Schema.org JSON-LD - LocalBusiness/ClothingStore
   schema: {
     '@context': 'https://schema.org',
     '@type': 'ClothingStore',
+    '@id': 'https://unicca-moda.com/#organization',
     name: 'Unicca Moda',
+    alternateName: 'Unicca Moda Chamartín',
+    description: 'Tienda de moda de mujer especializada en tallas grandes (38-60) en Chamartín, Madrid. Asesoramiento personalizado y prendas favorecedoras.',
+    url: 'https://unicca-moda.com',
     telephone: '+34639429780',
+    email: 'info@unicca-moda.com',
+    priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    paymentAccepted: 'Efectivo, Tarjeta de crédito, Tarjeta de débito',
+    image: 'https://unicca-moda.com/og-image.jpg',
+    logo: 'https://unicca-moda.com/logo.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'C. de Cartagena, 138',
@@ -163,6 +205,12 @@ export const siteConfig = {
       addressRegion: 'Madrid',
       addressCountry: 'ES'
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 40.4456,
+      longitude: -3.6739
+    },
+    hasMap: 'https://maps.app.goo.gl/nnVeMxDNnDjnm4yk6',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -186,8 +234,22 @@ export const siteConfig = {
     sameAs: [
       'https://www.instagram.com/unicca_moda_/',
       'https://www.facebook.com/Uniccamoda'
+    ],
+    areaServed: {
+      '@type': 'City',
+      name: 'Madrid'
+    },
+    knowsAbout: [
+      'Moda de mujer',
+      'Tallas grandes',
+      'Asesoría de imagen',
+      'Ropa talla 38-60',
+      'Vestidos de fiesta tallas grandes'
     ]
-  }
+  },
+
+  // URL base del sitio
+  baseUrl: 'https://unicca-moda.com'
 } as const
 
 export type SiteConfig = typeof siteConfig

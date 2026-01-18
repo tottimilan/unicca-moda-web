@@ -1,56 +1,57 @@
 import Link from 'next/link'
-import { ArrowRight, Image as ImageIcon } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 
-// Placeholder images - se reemplazarán con imágenes reales
+// Imágenes de la galería - usando las imágenes reales disponibles
 const galleryImages = [
-  { id: 1, alt: 'Interior de Unicca Moda con prendas de mujer en exposición' },
-  { id: 2, alt: 'Escaparate de Unicca Moda en Chamartín con decoración floral' },
-  { id: 3, alt: 'Zona de mostrador "Siéntete Unicca" dentro de la tienda' },
-  { id: 4, alt: 'Perchero con prendas coloridas de moda de mujer' },
-  { id: 5, alt: 'Detalle de prendas en exhibición' },
-  { id: 6, alt: 'Ambiente acogedor de la tienda' },
+  { id: 1, src: '/Galeria/video1.png', alt: 'Interior de Unicca Moda con prendas de mujer' },
+  { id: 2, src: '/Galeria/video2.png', alt: 'Escaparate de Unicca Moda en Chamartín' },
+  { id: 3, src: '/Galeria/video3.png', alt: 'Zona de mostrador Siéntete Unicca' },
+  { id: 4, src: '/Galeria/video4.png', alt: 'Perchero con prendas coloridas' },
+  { id: 5, src: '/Galeria/video5.png', alt: 'Detalle de prendas en exhibición' },
+  { id: 6, src: '/Hero/video1.png', alt: 'Ambiente de la tienda Unicca Moda' },
 ]
 
 export function Gallery() {
   return (
-    <section className="py-24 bg-stone-50">
-      <div className="container">
-        <div className="text-center space-y-4 mb-16">
-          <p className="text-primary font-medium tracking-wide uppercase text-sm">
+    <section className="py-12 md:py-20 lg:py-24 bg-stone-50">
+      <div className="container px-4">
+        <div className="text-center space-y-3 md:space-y-4 mb-8 md:mb-12 lg:mb-16">
+          <p className="text-primary font-medium tracking-wide uppercase text-xs md:text-sm">
             Galería
           </p>
-          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight">
             Unicca <span className="italic">por dentro</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Descubre el ambiente único de nuestra tienda
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {/* Grid responsive: 2 columnas en móvil, 3 en desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
           {galleryImages.map((image) => (
             <div
               key={image.id}
-              className="group relative aspect-square overflow-hidden bg-gradient-to-br from-stone-200 to-stone-100 border border-stone-200 hover:border-primary/30 transition-all duration-300"
+              className="group relative aspect-square overflow-hidden bg-stone-100 border border-stone-200 hover:border-primary/30 transition-all duration-300"
             >
-              {/* Placeholder para imagen */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                <ImageIcon className="h-10 w-10 text-stone-400 mb-3" />
-                <p className="text-xs text-muted-foreground text-center leading-relaxed">
-                  {image.alt}
-                </p>
-              </div>
-
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              />
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 md:mt-12">
           <Link
             href="/galeria"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group text-sm md:text-base"
           >
             Ver galería completa
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
