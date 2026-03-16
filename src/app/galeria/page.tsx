@@ -6,6 +6,32 @@ import { GalleryLightbox } from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: siteConfig.pages.galeria.title,
   description: siteConfig.pages.galeria.description,
+  keywords: [
+    'galería Unicca Moda',
+    'fotos tienda ropa mujer Madrid',
+    'colecciones moda mujer Chamartín',
+    'ropa tallas grandes fotos',
+    'tienda ropa mujer Madrid fotos',
+    'looks tallas 38-60 Madrid',
+  ],
+  alternates: {
+    canonical: 'https://unicca-moda.com/galeria',
+  },
+  openGraph: {
+    title: siteConfig.pages.galeria.title,
+    description: siteConfig.pages.galeria.description,
+    url: 'https://unicca-moda.com/galeria',
+    siteName: 'Unicca Moda',
+    locale: 'es_ES',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Galería Unicca Moda - Tienda de ropa mujer Chamartín' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.pages.galeria.title,
+    description: siteConfig.pages.galeria.description,
+    images: ['/og-image.jpg'],
+  },
 }
 
 const storeImages = [

@@ -2,7 +2,14 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Política de Cookies | Unicca Moda',
-  description: 'Política de cookies y cómo gestionamos las cookies en Unicca Moda',
+  description: 'Política de cookies y cómo gestionamos las cookies en Unicca Moda, tienda de moda de mujer en Chamartín, Madrid.',
+  alternates: {
+    canonical: 'https://unicca-moda.com/politica-cookies',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function PoliticaCookiesPage() {

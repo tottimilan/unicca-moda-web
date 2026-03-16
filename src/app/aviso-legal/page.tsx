@@ -2,7 +2,14 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Aviso Legal | Unicca Moda',
-  description: 'Aviso legal y condiciones de uso del sitio web de Unicca Moda',
+  description: 'Aviso legal y condiciones de uso del sitio web de Unicca Moda, tienda de moda de mujer en Chamartín, Madrid.',
+  alternates: {
+    canonical: 'https://unicca-moda.com/aviso-legal',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function AvisoLegalPage() {
@@ -20,7 +27,7 @@ export default function AvisoLegalPage() {
             <li><strong>Razón Social:</strong> Unicca Moda</li>
             <li><strong>Dirección:</strong> C. de Cartagena, 138, Chamartín, 28002 Madrid</li>
             <li><strong>Teléfono:</strong> +34 639 42 97 80</li>
-            <li><strong>Email:</strong> contacto@uniccamoda.com</li>
+            <li><strong>Email:</strong> info@unicca-moda.com</li>
             <li><strong>Actividad:</strong> Comercio al por menor de prendas de vestir</li>
           </ul>
         </section>

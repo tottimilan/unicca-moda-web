@@ -9,6 +9,32 @@ import { MapPin, Car, Train, Bus, Instagram, Facebook } from 'lucide-react'
 export const metadata: Metadata = {
   title: siteConfig.pages.contacto.title,
   description: siteConfig.pages.contacto.description,
+  keywords: [
+    'contacto Unicca Moda',
+    'tienda ropa mujer Chamartín dirección',
+    'C/ Cartagena 138 Madrid',
+    'horario Unicca Moda',
+    'cómo llegar Unicca Moda',
+    'teléfono tienda ropa Madrid',
+  ],
+  alternates: {
+    canonical: 'https://unicca-moda.com/contacto',
+  },
+  openGraph: {
+    title: siteConfig.pages.contacto.title,
+    description: siteConfig.pages.contacto.description,
+    url: 'https://unicca-moda.com/contacto',
+    siteName: 'Unicca Moda',
+    locale: 'es_ES',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Contacto Unicca Moda - C/ Cartagena 138, Chamartín Madrid' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.pages.contacto.title,
+    description: siteConfig.pages.contacto.description,
+    images: ['/og-image.jpg'],
+  },
 }
 
 const transportOptions = [

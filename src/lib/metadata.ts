@@ -20,7 +20,8 @@ export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
     type = 'website'
   } = options
 
-  const ogImage = image || `${url}/og-image.jpg` // Placeholder para imagen OG
+  const BASE_URL = 'https://unicca-moda.com'
+  const ogImage = image || `${BASE_URL}/og-image.jpg`
 
   return {
     title,
@@ -34,7 +35,7 @@ export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
       address: false,
       telephone: false,
     },
-    metadataBase: new URL(url),
+    metadataBase: new URL(BASE_URL),
     alternates: {
       canonical: url,
     },
@@ -72,10 +73,8 @@ export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
         "max-snippet": -1,
       },
     },
-    verification: {
-      // Google Search Console verification (pendiente)
-      google: "pendiente-verification-code",
-    },
+    // verification.google: añadir cuando se tenga el token de Google Search Console
+
   }
 }
 

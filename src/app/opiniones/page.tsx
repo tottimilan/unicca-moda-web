@@ -7,6 +7,32 @@ import { Star, Award, Ruler } from 'lucide-react'
 export const metadata: Metadata = {
   title: siteConfig.pages.opiniones.title,
   description: siteConfig.pages.opiniones.description,
+  keywords: [
+    'opiniones Unicca Moda',
+    'reseñas tienda ropa mujer Madrid',
+    'valoraciones Unicca Moda Chamartín',
+    'clientas tallas grandes Madrid',
+    'reseñas Google tienda moda mujer',
+    'experiencias Unicca Moda',
+  ],
+  alternates: {
+    canonical: 'https://unicca-moda.com/opiniones',
+  },
+  openGraph: {
+    title: siteConfig.pages.opiniones.title,
+    description: siteConfig.pages.opiniones.description,
+    url: 'https://unicca-moda.com/opiniones',
+    siteName: 'Unicca Moda',
+    locale: 'es_ES',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Opiniones Unicca Moda - Tienda de ropa mujer Madrid' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.pages.opiniones.title,
+    description: siteConfig.pages.opiniones.description,
+    images: ['/og-image.jpg'],
+  },
 }
 
 // Reseñas ampliadas para la página dedicada
