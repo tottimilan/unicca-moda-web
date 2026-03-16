@@ -2,14 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
-// Imágenes de la galería - usando las imágenes reales disponibles
 const galleryImages = [
-  { id: 1, src: '/Galeria/video1.png', alt: 'Interior de Unicca Moda con prendas de mujer' },
-  { id: 2, src: '/Galeria/video2.png', alt: 'Escaparate de Unicca Moda en Chamartín' },
-  { id: 3, src: '/Galeria/video3.png', alt: 'Zona de mostrador Siéntete Unicca' },
-  { id: 4, src: '/Galeria/video4.png', alt: 'Perchero con prendas coloridas' },
-  { id: 5, src: '/Galeria/video5.png', alt: 'Detalle de prendas en exhibición' },
-  { id: 6, src: '/Hero/video1.png', alt: 'Ambiente de la tienda Unicca Moda' },
+  { id: 1, src: '/Galeria/look-1.webp', alt: 'Vestido plisado fucsia con chaleco - Unicca Moda' },
+  { id: 2, src: '/Galeria/look-2.webp', alt: 'Jersey beige con pantalón rojo - Unicca Moda' },
+  { id: 3, src: '/Galeria/look-3.webp', alt: 'Conjunto negro con estrellas - Unicca Moda' },
+  { id: 4, src: '/Hero/hero-principal.webp', alt: 'Vestido verde lima con plumas - Unicca Moda' },
+  { id: 5, src: '/Galeria/look-5.webp', alt: 'Chaqueta bordada artística - Unicca Moda' },
+  { id: 6, src: '/Galeria/look-6.webp', alt: 'Abrigo verde militar con detalle animal print - Unicca Moda' },
 ]
 
 export function Gallery() {

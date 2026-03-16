@@ -55,6 +55,40 @@ export default function AsesoriaPage() {
         </div>
       </section>
 
+      {/* Conoce a Conchi */}
+      <section className="py-10 md:py-16 bg-white border-y border-stone-200">
+        <div className="container px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center space-y-2 mb-6">
+              <p className="text-primary font-medium tracking-wide uppercase text-xs">
+                Tu asesora
+              </p>
+              <h2 className="text-xl md:text-2xl font-light tracking-tight">
+                Conoce a <span className="italic">Conchi</span>
+              </h2>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+              <div className="shrink-0 w-48 sm:w-56 aspect-[3/4] rounded-lg overflow-hidden border border-stone-200 bg-stone-100">
+                <img
+                  src="/conchi/conchi.png"
+                  alt="Conchi, asesora de imagen y dueña de Unicca Moda"
+                  className="w-full h-full object-cover object-top"
+                  width={224}
+                  height={298}
+                  fetchPriority="high"
+                />
+              </div>
+              <div className="text-center sm:text-left space-y-2">
+                <p className="text-lg font-medium text-foreground">Conchi</p>
+                <p className="text-sm text-muted-foreground">
+                  Asesora de imagen y dueña de la tienda. Te recibe en Unicca Moda para ayudarte a encontrar las prendas que mejor te sientan y te favorecen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cómo funciona */}
       <section className="py-10 md:py-16 bg-white border-y border-stone-200">
         <div className="container px-4">

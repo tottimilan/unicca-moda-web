@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
 import { Sparkles } from 'lucide-react'
@@ -6,19 +7,27 @@ const categories = [
   {
     name: 'Vestidos',
     description: 'Para cada ocasión',
+    image: '/novedades/vestidos.webp',
+    alt: 'Vestidos de mujer tallas 38-60 - Novedades Unicca Moda Madrid',
   },
   {
     name: 'Abrigos y chaquetas',
     description: 'Elegancia que abriga',
+    image: '/novedades/abrigos.webp',
+    alt: 'Abrigos y chaquetas talla grande - Novedades Unicca Moda Chamartín',
   },
   {
     name: 'Pantalones',
     description: 'Comodidad y estilo',
+    image: '/novedades/pantalones.webp',
+    alt: 'Pantalones mujer tallas grandes Madrid - Novedades Unicca Moda',
   },
   {
     name: 'Punto y blusas',
     description: 'Prendas versátiles',
-  }
+    image: '/novedades/punto-blusas.webp',
+    alt: 'Punto y blusas talla grande - Novedades Unicca Moda Madrid',
+  },
 ]
 
 export function Novedades() {
@@ -43,14 +52,17 @@ export function Novedades() {
           </div>
 
           {/* Categories Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
+          <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 mb-16">
             {categories.map((category, index) => (
-              <div 
-                key={index}
-                className="group text-center"
-              >
-                <div className="aspect-[3/4] bg-gradient-to-b from-stone-100 to-stone-50 rounded-sm mb-4 flex items-end justify-center pb-8 border border-stone-200/50 group-hover:border-primary/30 transition-colors duration-300">
-                  <div className="w-16 h-0.5 bg-primary/40"></div>
+              <div key={index} className="group text-center">
+                <div className="aspect-[3/4] relative overflow-hidden rounded-sm border border-stone-200/50 group-hover:border-primary/30 transition-colors duration-300 mb-4">
+                  <Image
+                    src={category.image}
+                    alt={category.alt}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
                 </div>
                 <h3 className="font-medium text-foreground mb-1">{category.name}</h3>
                 <p className="text-sm text-muted-foreground">{category.description}</p>

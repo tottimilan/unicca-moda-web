@@ -1,8 +1,47 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { siteConfig } from '@/content/site'
 import { CTAWhatsApp } from '@/components/CTAWhatsApp'
 import { FAQs } from '@/components/FAQs'
-import { CheckCircle, Shirt, ShoppingBag } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
+
+const categories = [
+  {
+    name: 'Vestidos',
+    tagline: 'Para cada ocasión',
+    description: 'Vestidos favorecedores en tallas 38–60: eventos, diario y mucho más.',
+    image: '/Hero/hero-principal.webp',
+    alt: 'Vestidos talla grande Madrid - Unicca Moda tallas 38-60',
+  },
+  {
+    name: 'Abrigos y chaquetas',
+    tagline: 'Elegancia que abriga',
+    description: 'Abrigos y chaquetas con cortes favorecedores para tallas grandes.',
+    image: '/Galeria/look-6.webp',
+    alt: 'Abrigos y chaquetas talla grande Madrid - Unicca Moda',
+  },
+  {
+    name: 'Pantalones',
+    tagline: 'Comodidad y estilo',
+    description: 'Pantalones en tallas 38–60: desde el casual hasta el más elegante.',
+    image: '/Galeria/look-2.webp',
+    alt: 'Pantalones talla grande Madrid - Ropa mujer tallas grandes',
+  },
+  {
+    name: 'Punto y blusas',
+    tagline: 'Prendas versátiles',
+    description: 'Jerseys, blusas y punto: prendas clave para completar cualquier look.',
+    image: '/Galeria/look-5.webp',
+    alt: 'Blusas y punto talla grande Madrid - Unicca Moda Chamartín',
+  },
+  {
+    name: 'Conjuntos',
+    tagline: 'Look completo',
+    description: 'Conjuntos coordinados para un look perfecto de una vez.',
+    image: '/Galeria/look-3.webp',
+    alt: 'Conjuntos talla grande Madrid - Unicca Moda tallas 38-60',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Tallas Grandes 38-60 Madrid | Ropa Mujer Tallas 50, 52, 54, 56, 58, 60',
@@ -55,21 +94,15 @@ export default function TallasPage() {
               <CTAWhatsApp messageKey="tallas" size="lg" />
             </div>
 
-            {/* Imagen placeholder */}
-            <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-to-br from-stone-200 via-stone-100 to-stone-50 border border-stone-200 overflow-hidden">
-                <div className="absolute inset-4 border border-primary/20"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                  <div className="text-center space-y-6">
-                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
-                    <Shirt className="h-12 w-12 text-primary/40 mx-auto" />
-                    <p className="text-muted-foreground text-sm">
-                      Imagen de tienda próximamente
-                    </p>
-                    <div className="w-20 h-0.5 bg-primary/40 mx-auto"></div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] overflow-hidden border border-stone-200">
+              <Image
+                src="/tallas/gabardina-beige.webp"
+                alt="Gabardina larga beige - Unicca Moda tallas 38-60"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -123,17 +156,25 @@ export default function TallasPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {siteConfig.pages.tallas.categories.map((category, index) => (
-              <div key={index} className="bg-white p-8 border border-stone-200 hover:border-primary/30 transition-colors duration-300 text-center group">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 border border-primary/20 flex items-center justify-center mx-auto group-hover:border-primary/40 transition-colors">
-                    <ShoppingBag className="h-5 w-5 text-primary" />
+          <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            {categories.map((cat, index) => (
+              <div key={index} className="group relative overflow-hidden border border-stone-200 bg-stone-50 hover:border-primary/30 transition-colors duration-300">
+                <div className="aspect-[3/4] relative overflow-hidden">
+                  <Image
+                    src={cat.image}
+                    alt={cat.alt}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                    <p className="text-[10px] uppercase tracking-wider opacity-75 leading-tight">{cat.tagline}</p>
+                    <h3 className="text-sm font-medium leading-tight">{cat.name}</h3>
                   </div>
-                  <h3 className="font-medium">{category}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Variedad de estilos y colores
-                  </p>
+                </div>
+                <div className="p-3">
+                  <p className="text-xs text-muted-foreground leading-relaxed">{cat.description}</p>
                 </div>
               </div>
             ))}
