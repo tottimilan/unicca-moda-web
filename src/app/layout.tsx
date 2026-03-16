@@ -86,6 +86,10 @@ export const metadata: Metadata = {
     // google: 'verification_token',
   },
   category: 'shopping',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 // FAQPage Schema para rich snippets
@@ -123,7 +127,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Favicon y iconos */}
+        {/* Favicon vía metadata.icons; manifest para PWA */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#6e4936" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
