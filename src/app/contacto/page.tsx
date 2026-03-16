@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     'teléfono tienda ropa Madrid',
   ],
   alternates: {
-    canonical: 'https://unicca-moda.com/contacto',
+    canonical: 'https://uniccamoda.com/contacto',
   },
   openGraph: {
     title: siteConfig.pages.contacto.title,
     description: siteConfig.pages.contacto.description,
-    url: 'https://unicca-moda.com/contacto',
+    url: 'https://uniccamoda.com/contacto',
     siteName: 'Unicca Moda',
     locale: 'es_ES',
     type: 'website',

@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://unicca-moda.com'),
+  metadataBase: new URL('https://uniccamoda.com'),
   title: {
     default: siteConfig.pages.home.title,
     template: '%s | Unicca Moda'
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "moda curvy Madrid",
     "plus size Madrid"
   ],
-  authors: [{ name: siteConfig.name, url: 'https://unicca-moda.com' }],
+  authors: [{ name: siteConfig.name, url: 'https://uniccamoda.com' }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
   formatDetection: {
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: 'https://unicca-moda.com',
+    canonical: 'https://uniccamoda.com',
   },
   openGraph: {
     title: siteConfig.pages.home.title,
     description: siteConfig.pages.home.description,
-    url: "https://unicca-moda.com",
+    url: "https://uniccamoda.com",
     siteName: siteConfig.name,
     locale: "es_ES",
     type: "website",
@@ -111,10 +111,10 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Unicca Moda',
-  url: 'https://unicca-moda.com',
+  url: 'https://uniccamoda.com',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://unicca-moda.com/?s={search_term_string}',
+    target: 'https://uniccamoda.com/?s={search_term_string}',
     'query-input': 'required name=search_term_string'
   }
 }

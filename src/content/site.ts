@@ -185,18 +185,18 @@ export const siteConfig = {
   schema: {
     '@context': 'https://schema.org',
     '@type': 'ClothingStore',
-    '@id': 'https://unicca-moda.com/#organization',
+    '@id': 'https://uniccamoda.com/#organization',
     name: 'Unicca Moda',
     alternateName: 'Unicca Moda Chamartín',
     description: 'Tienda de moda de mujer especializada en tallas grandes (38-60) en Chamartín, Madrid. Asesoramiento personalizado y prendas favorecedoras.',
-    url: 'https://unicca-moda.com',
+    url: 'https://uniccamoda.com',
     telephone: '+34639429780',
-    email: 'info@unicca-moda.com',
+    email: 'info@uniccamoda.com',
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Efectivo, Tarjeta de crédito, Tarjeta de débito',
-    image: 'https://unicca-moda.com/og-image.jpg',
-    logo: 'https://unicca-moda.com/logo.png',
+    image: 'https://uniccamoda.com/og-image.jpg',
+    logo: 'https://uniccamoda.com/logo.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'C. de Cartagena, 138',
@@ -249,7 +249,7 @@ export const siteConfig = {
   },
 
   // URL base del sitio
-  baseUrl: 'https://unicca-moda.com'
+  baseUrl: 'https://uniccamoda.com'
 } as const
 
 export type SiteConfig = typeof siteConfig

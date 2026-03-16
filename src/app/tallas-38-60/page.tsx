@@ -61,12 +61,12 @@ export const metadata: Metadata = {
     'tienda tallas grandes Chamartín'
   ],
   alternates: {
-    canonical: 'https://unicca-moda.com/tallas-38-60',
+    canonical: 'https://uniccamoda.com/tallas-38-60',
   },
   openGraph: {
     title: 'Tallas Grandes 38-60 en Madrid | Unicca Moda',
     description: 'Especialistas en moda de mujer tallas grandes. Vestidos, pantalones, blusas y más en tallas 38-60 con asesoría personalizada.',
-    url: 'https://unicca-moda.com/tallas-38-60',
+    url: 'https://uniccamoda.com/tallas-38-60',
   },
 }
 

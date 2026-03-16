@@ -16,11 +16,11 @@ export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
     description = siteConfig.pages.home.description,
     keywords = ["ropa mujer", "tallas grandes", "tallas 38-60", "Chamartín", "Madrid", "moda mujer"],
     image,
-    url = "https://unicca-moda.com",
+    url = "https://uniccamoda.com",
     type = 'website'
   } = options
 
-  const BASE_URL = 'https://unicca-moda.com'
+  const BASE_URL = 'https://uniccamoda.com'
   const ogImage = image || `${BASE_URL}/og-image.jpg`
 
   return {
@@ -85,11 +85,11 @@ export function generateStructuredData(pageType: string, pageData?: any) {
     "@type": "WebPage",
     name: siteConfig.name,
     description: siteConfig.pages.home.description,
-    url: `https://unicca-moda.com${pageType === 'home' ? '' : `/${pageType}`}`,
+    url: `https://uniccamoda.com${pageType === 'home' ? '' : `/${pageType}`}`,
     isPartOf: {
       "@type": "WebSite",
       name: siteConfig.name,
-      url: "https://unicca-moda.com"
+      url: "https://uniccamoda.com"
     },
     about: {
       "@type": "ClothingStore",

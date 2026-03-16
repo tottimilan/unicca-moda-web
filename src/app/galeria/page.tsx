@@ -15,12 +15,12 @@ export const metadata: Metadata = {
     'looks tallas 38-60 Madrid',
   ],
   alternates: {
-    canonical: 'https://unicca-moda.com/galeria',
+    canonical: 'https://uniccamoda.com/galeria',
   },
   openGraph: {
     title: siteConfig.pages.galeria.title,
     description: siteConfig.pages.galeria.description,
-    url: 'https://unicca-moda.com/galeria',
+    url: 'https://uniccamoda.com/galeria',
     siteName: 'Unicca Moda',
     locale: 'es_ES',
     type: 'website',

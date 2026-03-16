@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     'experiencias Unicca Moda',
   ],
   alternates: {
-    canonical: 'https://unicca-moda.com/opiniones',
+    canonical: 'https://uniccamoda.com/opiniones',
   },
   openGraph: {
     title: siteConfig.pages.opiniones.title,
     description: siteConfig.pages.opiniones.description,
-    url: 'https://unicca-moda.com/opiniones',
+    url: 'https://uniccamoda.com/opiniones',
     siteName: 'Unicca Moda',
     locale: 'es_ES',
     type: 'website',

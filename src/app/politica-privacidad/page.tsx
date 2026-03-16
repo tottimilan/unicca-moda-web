@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Política de Privacidad | Unicca Moda',
   description: 'Política de privacidad y protección de datos personales de Unicca Moda, tienda de moda de mujer en Chamartín, Madrid.',
   alternates: {
-    canonical: 'https://unicca-moda.com/politica-privacidad',
+    canonical: 'https://uniccamoda.com/politica-privacidad',
   },
   robots: {
     index: false,
@@ -27,7 +27,7 @@ export default function PoliticaPrivacidadPage() {
             <li><strong>Responsable:</strong> Unicca Moda</li>
             <li><strong>Dirección:</strong> C. de Cartagena, 138, Chamartín, 28002 Madrid</li>
             <li><strong>Teléfono:</strong> +34 639 42 97 80</li>
-            <li><strong>Email:</strong> info@unicca-moda.com</li>
+            <li><strong>Email:</strong> info@uniccamoda.com</li>
             <li><strong>Finalidad:</strong> Comercio al por menor de prendas de vestir</li>
           </ul>
         </section>
@@ -133,7 +133,7 @@ export default function PoliticaPrivacidadPage() {
           <ul className="list-disc pl-6 space-y-2 mt-4">
             <li><strong>WhatsApp:</strong> +34 639 42 97 80</li>
             <li><strong>Dirección:</strong> C. de Cartagena, 138, Chamartín, 28002 Madrid</li>
-            <li><strong>Email:</strong> info@unicca-moda.com</li>
+            <li><strong>Email:</strong> info@uniccamoda.com</li>
           </ul>
         </section>
 

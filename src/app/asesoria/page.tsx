@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle, User, Briefcase, PartyPopper, Plane } from 'lu
 export const metadata = generateMetadata({
   title: siteConfig.pages.asesoria.title,
   description: siteConfig.pages.asesoria.description,
-  url: 'https://unicca-moda.com/asesoria'
+  url: 'https://uniccamoda.com/asesoria'
 })
 
 const steps = [
